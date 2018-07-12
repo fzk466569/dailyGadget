@@ -1,0 +1,11 @@
+.idea
+.swp
+*.py[cod]
+bloom_url.txt
+.DS_Store
+.rdb
+begin.py
+.vscode
+test.py
+table_name.py
+settings.py

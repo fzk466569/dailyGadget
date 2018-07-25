@@ -39,13 +39,15 @@ class MaxHeap(object):
 
     def shift_down(self, h):
         while 2 * h <= self.count:
-            k = 2 * h
+            cr = 2 * h
             # 如果有右孩子并且右孩子大于左孩子
-            if k + 1 <= self.count and self.data[k + 1] > self.data[k]:
-                k += 1
-            if self.data[k] > self.data[h]:
-                self.data[k], self.data[h] = self.data[h], self.data[k]
-            h = k
+            if cr + 1 <= self.count and self.data[cr + 1] > self.data[cr]:
+                cr += 1
+            if self.data[cr] > self.data[h]:
+                self.data[cr], self.data[h] = self.data[h], self.data[cr]
+            else:
+                break
+            h = cr
 
 
 if __name__ == '__main__':

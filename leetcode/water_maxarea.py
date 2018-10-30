@@ -10,9 +10,9 @@ class Solution(object):
         :type height: List[int]
         :rtype: int
         """
-        maxarea,l,r = 0, 0, len(height) - 1
-        while (l < r):
-            maxarea = max(maxarea, min(height[l], height[r]) * (r-l))
+        maxarea, l, r = 0, 0, len(height) - 1
+        while l < r:
+            maxarea = max(maxarea, min(height[l], height[r]) * (r - l))
             if height[l] < height[r]:
                 l += 1
             else:

@@ -3,7 +3,7 @@
 # Author: fzk
 # @Time  10:06
 
-# from itertools import product 这个函数很好用，不过算法应该是不能这么用的
+from itertools import product   # 这个函数很好用，不过算法应该是不能这么用的
 
 
 def letterCombinations(digits):
@@ -15,9 +15,11 @@ def letterCombinations(digits):
     digits = list(digits)
     res = [i for i in shuju[digits[0]]]
     for i in digits[1:]:
-        res = [m+n for m in res for n in shuju[i]]
+        res = [m + n for m in res for n in shuju[i]]
     return res
 
 
 if __name__ == '__main__':
     print(letterCombinations('43'))
+    a = [x + y for x in '123' for y in 'abcd']
+    print(a)

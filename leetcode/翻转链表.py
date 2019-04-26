@@ -36,7 +36,7 @@ if __name__ == '__main__':
     n2.next = n3
     n3.next = n4
     n4.next = n5
-    root1 = fun(n1)
+    root1 = fun1(n1)
     node = root1.next
     while node:
         print(node.v)

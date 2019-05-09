@@ -16,7 +16,16 @@ def func(s1, s2):
     return
 
 
+def func2(s1, s2):
+    data = set(s1)
+    res = []
+    for x in s2:
+        if x in data:
+            res.append(x)
+    return res
+
+
 if __name__ == '__main__':
     s1 = 'fzk'
     s2 = 'fks'
-    func(s1, s2)
+    print(func2(s1, s2))

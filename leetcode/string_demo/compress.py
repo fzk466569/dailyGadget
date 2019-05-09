@@ -27,4 +27,4 @@ def zip_string(iniString):
 if __name__ == '__main__':
     s = 'aabcccccaaa'
     s1 = 'welcometonowcoderrrrr'
-    print(zip_string(s1))
+    print(zip_string(s))

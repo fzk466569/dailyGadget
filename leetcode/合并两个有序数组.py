@@ -31,5 +31,22 @@ def func(l1, m, l2, n):
     return data
 
 
+def func2(l1, l2):
+    res = []
+    i = j = 0
+    while i < len(l1) and j < len(l2):
+        if l1[i] < l2[j]:
+            res.append(l1[i])
+            i += 1
+        else:
+            res.append(l2[j])
+            j += 1
+    if i == len(l1):
+        res.extend(l2[j:])
+    else:
+        res.extend(l1[i:])
+    return res
+
+
 if __name__ == '__main__':
-    print(func([1, 2, 3, 0, 0, 0], 3, [2, 5, 6], 3))
+    print(func2([1, 2, 3, 5, 5, 5], [2, 5, 6]))

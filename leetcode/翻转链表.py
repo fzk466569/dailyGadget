@@ -23,7 +23,14 @@ def fun1(root):
 
 
 def fun2(root):
-    pass
+    pre = None
+    cur = root
+    while cur:
+        next_node = cur.next
+        cur.next = pre
+        pre = cur
+        cur = next_node
+    return pre
 
 
 if __name__ == '__main__':
@@ -36,7 +43,7 @@ if __name__ == '__main__':
     n2.next = n3
     n3.next = n4
     n4.next = n5
-    root1 = fun1(n1)
+    root1 = fun2(n1)
     node = root1.next
     while node:
         print(node.v)

@@ -12,17 +12,26 @@ class TreeNode(object):
         self.right = None
 
 
-def func(root):
-    A = []
-    result = []
-    if not root:
-        return result
-    A.append(root)
-    while A:
-        current_root = A.pop(0)
-        result.append(current_root.val)
-        if current_root.left:
-            A.append(current_root.left)
-        if current_root.right:
-            A.append(current_root.right)
+def parse(root):
+    """
 
+    :param root: TreeNode
+    :return:
+    """
+    data = []
+    if not root:
+        return
+    cur = [root]
+    data.append([node.val for node in cur])
+    next_nodes = []
+    while cur:
+        for node in cur:
+            if node.left:
+                next_nodes.append(node.left)
+            if node.right:
+                next_nodes.append(node.right)
+        cur = next_nodes
+        next_nodes = []
+        if cur:
+            data.append([node.val for node in cur])
+    return data

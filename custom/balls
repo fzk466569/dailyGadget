@@ -1,0 +1,49 @@
+# 相同颜色的球不挂在一起，求一种挂球方案
+
+
+class my_dict(dict):
+    def __missing__(self, key):
+        return 0
+
+
+def test(balls):
+    length = len(balls)
+    flag = False  # 是否拥有一种颜色的球占一半以上
+
+    data = my_dict()
+    for ball in balls:
+        data[ball] += 1
+
+    for k, v in data.items():
+        if v > (length + 1) // 2:
+            return 'no way'
+        elif v == (length + 1) // 2:
+            flag = True
+        else:
+            flag = False
+    res = [0] * length
+
+    sort_balls = sorted(data.items(), key=lambda x: x[1], reverse=True)
+
+    sort_list = []
+    for k, count in sort_balls:
+        sort_list.extend(k * count)
+
+    if flag:
+        # 颜色刚好最大数目的球要隔一个占一个，剩下的坑留给剩下的球
+        res[::2] = sort_list[0][0]
+        res[1::2] = sort_list[(length + 1) // 2:]
+    else:
+        # 各自分开占坑即可，要注意两者不能反，不然如果总数为单数时候可能导致res[::2]占不满坑
+        res[::2] = sort_list[length // 2:]
+        res[1::2] = sort_list[:length // 2]
+    return res
+
+
+if __name__ == '__main__':
+    from random import randint
+
+    test_data = [str(randint(1, 4)) for x in range(20)]
+    # print(test_data)
+    # test_data = ['1', '2', '3', '1', '2', '1', '1']
+    print(test(test_data))

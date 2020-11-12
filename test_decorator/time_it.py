@@ -27,12 +27,5 @@ def test(times):
 
 if __name__ == '__main__':
     times = 1
-    print test(times)
-    print(test.func_name)
+    print(test(times))
     print(test.__name__)
-
-    # ('f.__name__: ', 'test')
-    # func test 耗时 1.00527596474 seconds
-    # sssssssss
-    # test
-    # test
